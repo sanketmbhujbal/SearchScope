@@ -2,16 +2,14 @@
 
 | | |
 |---|---|
-| **Author** | S B |
+| **Author** | Sanket Bhujbal |
 | **Status** | Ready for implementation |
 | **Target corpus** | MS MARCO Passage Ranking (TREC DL 2019/2020) |
 | **Target timeline** | 10 working days |
-| **Inspired by** | Glean MLE, Search Quality, Mountain View, CA |
 
 This project demonstrates signal engineering, cross-encoder reranking,
 role-based personalization, domain-adapted QA, and rigorous offline
-evaluation, mirroring the core responsibilities of the Glean MLE Search
-Quality role.
+evaluation.
 
 ## 1. Problem Statement
 
@@ -267,7 +265,7 @@ searchscope/
 | 9 | Failure Analysis + Customer Cases | 5 visual failures + 3 complaint cases | Customer interaction thinking |
 | 10 | README + Blog Post Outline | Repo polished, blog draft started | Productionization writeup |
 
-## 15. How This Would Productionize at Glean
+## 15. How This Would Productionize 
 
 ### 15.1 Ingestion architecture
 
@@ -282,10 +280,10 @@ This project has no concept of per-user access control. Every query sees the ful
 
 ### 15.3 Pipeline-stage productionization
 
-- Retrieval layer would be replaced by Glean's connector-aware index spanning 100+ SaaS sources with per-document permissions (§15.2). Hybrid fusion remains valid; BM25 and dense signals still apply per-connector.
-- Cross-encoder reranking would need accelerated hardware at Glean's query volume. The model architecture stays identical, the serving infrastructure changes (see §15.4).
-- LTR signal set would extend with real click-through data, dwell time, and Glean's Enterprise Graph signals (co-viewer, co-searcher, team affinity). This demo's simulated signals are the scaffolding for those, and Day 7's ablation study already showed the current simulated versions carry close to no real signal at this project's scale, which is itself informative about how much *real* behavioral data would be needed before these features earn their place in a production model.
-- Personalization would run per-employee using Glean's Personal Knowledge Graph (actual interaction history, not simulated role vectors). The role simulation here is the conceptual prototype. Day 4's finding (TF-IDF affinity showed real signal for HR, but collapsed for other roles on this general corpus) is direct evidence for why: role signal needs role-labeled interaction data, not just seed keywords against generic content.
+- Retrieval layer would be replaced by connector-aware index spanning 100+ SaaS sources with per-document permissions (§15.2). Hybrid fusion remains valid; BM25 and dense signals still apply per-connector.
+- Cross-encoder reranking would need accelerated hardware at enterprise query volume. The model architecture stays identical, the serving infrastructure changes (see §15.4).
+- LTR signal set would extend with real click-through data, dwell time, and real Enterprise Graph signals (co-viewer, co-searcher, team affinity). This demo's simulated signals are the scaffolding for those, and Day 7's ablation study already showed the current simulated versions carry close to no real signal at this project's scale, which is itself informative about how much *real* behavioral data would be needed before these features earn their place in a production model.
+- Personalization would run per-employee using a Personal Knowledge Graph (actual interaction history, not simulated role vectors). The role simulation here is the conceptual prototype. Day 4's finding (TF-IDF affinity showed real signal for HR, but collapsed for other roles on this general corpus) is direct evidence for why: role signal needs role-labeled interaction data, not just seed keywords against generic content.
 - Domain adaptation would run per-customer at index time: extract vocabulary distribution, update system prompts, optionally fine-tune an adapter on customer query logs.
 - Offline evaluation with TREC judgments shifts to online A/B experiments with interleaving. This harness is the pre-launch gate before any online experiment.
 
@@ -303,7 +301,7 @@ This project runs entirely on CPU against a 150K-passage scoped corpus, with QA 
 
 ## 16. Future Work
 
-- **Signal Suggestion Engine**: auto-detect patterns in failure cases (e.g. "many failures caused by freshness") and suggest signal reweighting, the iterative search quality improvement loop Glean runs internally.
+- **Signal Suggestion Engine**: auto-detect patterns in failure cases (e.g. "many failures caused by freshness") and suggest signal reweighting, the iterative search quality improvement loop enterprise runs internally.
 - **Synthetic enterprise corpus**: multi-source dataset (Slack, Confluence, GitHub issues, Google Docs) with simulated permissions and team ownership.
 - **Personalization v2**: collaborative filtering over user-document interaction history to replace role-affinity simulation with learned user preference vectors.
 - **Fine-tuned domain encoder**: adapter fine-tuning of bge-base on domain-specific query-passage pairs to close the vocabulary gap further.

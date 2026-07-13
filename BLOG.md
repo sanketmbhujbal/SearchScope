@@ -90,4 +90,4 @@ None of that touches the bigger architectural gaps either. This pipeline runs ag
 
 What mattered most across ten days was one habit: staying suspicious of a result that looked too good, too clean, or too convenient, and checking anyway before writing it down.
 
-Code and the full evidence behind each finding: [github.com/.../searchscope](#)
+Code and the full evidence behind each finding: [github.com/sanketmbhujbal/searchscope](#)

@@ -1,0 +1,7 @@
+# Deliberately minimal. This app presents precomputed real results
+# (see data.py) rather than running the live pipeline, so it does not
+# need Pyserini, FAISS, PyTorch, XGBoost, or any JVM. That's what keeps
+# it fast and reliable to deploy on a free hosting tier.
+streamlit==1.59.1
+plotly==6.9.0
+pandas==3.0.2

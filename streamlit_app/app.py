@@ -37,7 +37,7 @@ st.caption(
 
 col1, col2, col3 = st.columns(3)
 col1.link_button("Code", "https://github.com/sanketmbhujbal/searchscope", width='stretch')
-col2.link_button("Blog", "https://github.com/sanketmbhujbal/searchscope", width='stretch')
+col2.link_button("Blog", "https://open.substack.com/pub/sanketbhujbal/p/why-i-stopped-trusting-my-own-evaluation?r=5p0kv6&utm_campaign=post-expanded-share&utm_medium=post%20viewer", width='stretch')
 col3.link_button("Design Doc", "https://github.com/sanketmbhujbal/searchscope/", width='stretch')
 
 st.divider()

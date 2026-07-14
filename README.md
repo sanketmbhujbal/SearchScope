@@ -43,10 +43,9 @@ are the actual point of the project, not an afterthought.
 
 See [`DESIGN.md`](DESIGN.md) for the full technical design doc and every
 scoping decision (corpus size, encoder choice, training methodology) with
-its reasoning. See [`BLOG.md`](BLOG.md) for the narrative writeup, and
-[`streamlit_app/`](streamlit_app/) for an interactive demo of these
-findings (`streamlit run streamlit_app/app.py`, or deploy your own copy
-for free, see `streamlit_app/README.md`).
+its reasoning. See [`Substack article`](https://sanketbhujbal.substack.com/p/why-i-stopped-trusting-my-own-evaluation?r=5p0kv6&utm_campaign=post-expanded-share&utm_medium=post%20viewer&triedRedirect=true) for the narrative writeup, and
+[`streamlit_app`](https://searchscope.streamlit.app/) for an interactive demo of these
+findings.
 
 ## Status
 
